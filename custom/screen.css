@@ -1,0 +1,31 @@
+
+
+h1{
+	text-align: center;
+}
+
+h3{
+	color: white;
+}
+#detailsForm, #functionDetails{
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: #236E90;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 1px;
+}
+
+#functionDetails{
+	margin-top: 15px;
+}
+
+#name, #surname, #cell, #email, #additionalInfo{
+	padding-bottom: 15px;
+}
+
+#datepicker, #startTime, #endTime{
+	padding-bottom: 15px;
+}
+

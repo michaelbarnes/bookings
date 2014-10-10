@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Bookings</title>
+		<!--<link href="../css/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"-->
+		
+		<link href="../css/custom/screen.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="../js/custom.js"></script>
+	</head>
+	<body>
+		<h1>
+			Book a Function
+		</h1>
+		<div id="detailsForm">
+			<h3> 
+				Host Details
+			</h3>
+			<form class="hdetails" >
+				<div id="name">
+  					<input type="text" class="form-control" placeholder="First Name">
+				</div>
+				<div id="surname">
+	  				<input type="text" class="form-control" placeholder="Surname">
+				</div>
+				<div id="cell">
+	  				<input type="text" class="form-control" placeholder="Cell Number">
+				</div>
+				<div id="email">
+	  				<input type="text" class="form-control" placeholder="Email Address">
+				</div>
+				<div id="additionalInfo">
+	  				<textarea class="form-control" rows="3" placeholder="Additional Information/Requirements"></textarea>
+				</div>
+			</form>
+		</div>
+		<div id="functionDetails">
+			<h3> 
+				Function Details
+			</h3>
+			<form class="fdetails" >
+				<div id="datepicker">
+					<input type="text" class="form-control" placeholder="Date">
+	          	</div>
+				<div id="startTime">
+	  				<input type="text" class="form-control" placeholder="Start Time">
+				</div>
+				<div id="endTime">
+	  				<input type="text" class="form-control" placeholder="End Time">
+				</div>
+				<div class="dDown">
+				  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" id="dropdownMenu1">
+				    Function
+				    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Day Visiters</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">School Outing</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weddings</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Corporate</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Private Function</a></li>
+					  </ul>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
