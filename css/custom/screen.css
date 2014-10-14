@@ -1,5 +1,4 @@
 
-
 h1{
 	text-align: center;
 }
@@ -18,7 +17,7 @@ body{
 	background-color: #cccccc;
 }
 
-#detailsForm, #functionDetails, #contactDetails{
+#detailsForm, #functionDetails, #contactDetails, #privateEvent, #childEvent{
 	margin-left: 20%;
 	margin-right: 20%;
 	background-color: #56C2A9;
@@ -29,7 +28,7 @@ body{
 	box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
 }
 
-#functionDetails, #contactDetails{
+#functionDetails, #contactDetails, #privateEvent, #childEvent{
 	margin-top: 15px;
 }
 
@@ -37,7 +36,24 @@ body{
 	padding-bottom: 15px;
 }
 
-#datepicker, #startTime, #endTime{
+#datepicker, #date{
 	padding-bottom: 15px;
 }
 
+.dDown{
+	position: relative;
+	/*padding-bottom: 15px;*/
+}
+
+#functionDetails, #amountGuests, #endTime, #contactDetails{
+	padding-bottom: 15px;
+}
+
+#dialogue{
+	padding-left: 2px;
+}
+
+#submitBTN{
+	padding-top: 15px;
+	margin-left: 48%;
+}
