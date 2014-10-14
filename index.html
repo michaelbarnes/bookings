@@ -3,38 +3,37 @@
 	
 	<head>
 		<title>Bookings</title>
-		<!--<link href="../css/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"-->
-		
 		<link href="css/custom/screen.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script src="js/jquery-2.1.1.min.js"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		<script src="../js/custom.js"></script>
+		<script src="js/custom.js"></script>
 	</head>
 		<body>
 			<div>
 			<h1>
-				Book a Function
+				Book a Function 	
 			</h1>
 			<div id="detailsForm">
 				<h2> 
 					Host Details
 				</h2>
-				<form class="hdetails" >
+				<form class="hdetails" name="proposor">
 					<div id="name">
-	  					<input type="text" class="form-control" placeholder="First Name">
+	  					<input id="nameValue" type="text" class="form-control" placeholder="First Name" required>
 					</div>
 					<div id="surname">
-		  				<input type="text" class="form-control" placeholder="Surname">
+		  				<input id="surNameValue" type="text" class="form-control" placeholder="Surname" required>
 					</div>
 					<div id="cell">
-		  				<input type="text" class="form-control" placeholder="Cell Number">
+		  				<input id="cellValue" type="text" class="form-control" placeholder="Cell Number" required>
 					</div>
 					<div id="email">
-		  				<input type="text" class="form-control" placeholder="Email Address">
+		  				<input id="emailAddress" type="text" class="form-control" placeholder="Email Address" required>
 					</div>
 					<div id="additionalInfo">
-		  				<textarea class="form-control" rows="3" placeholder="Additional Information/Requirements"></textarea>
+		  				<textarea id="additionInfValue" class="form-control" rows="3" placeholder="Additional Information/Requirements"></textarea>
 					</div>
 				</form>
 			</div>
@@ -43,14 +42,23 @@
 					Function Details
 				</h3>
 				<form class="fdetails" >
-					<div id="datepicker">
-						<input type="text" class="form-control" placeholder="Date">
-		          	</div>
+					<div id="date">
+						<div id="dialogue">
+							Date
+						</div>
+						<input id="dateValue" type="date" class="form-control" name="sTime" value="Start Time" max="2025-12-31" required>
+					</div>
 					<div id="startTime">
-		  				<input type="text" class="form-control" placeholder="Start Time">
+						<div id="dialogue">
+							Start Time
+						</div>
+						<input id="startValue" type="time" class="form-control" name="usr_time" required>
 					</div>
 					<div id="endTime">
-		  				<input type="text" class="form-control" placeholder="End Time">
+						<div id="dialogue">
+							End Time
+						</div>
+		  				<input id="endValue" type="time" class="form-control" name="usr_time" required>
 					</div>
 					<div class="dDown">
 					  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" id="dropdownMenu1">
@@ -58,12 +66,33 @@
 					    <span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Day Visiters</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">School Outing</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weddings</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Corporate</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Private Function</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#childEvent">Kiddies</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#childEvent">Day Visitors</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#childEvent">School Outing</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#functionDetails">Weddings</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#functionDetails">Corporate</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#privateEvent">Private Function</a></li>
 						  </ul>
+					</div>
+				</form>
+			</div>
+			<div id="privateEvent">
+				<form class="cdetails" >
+					<div id="amountGuests">
+						<label for="male">Number of guests attending<em>(including host)</em></label>
+	  					<input type="text" class="form-control" placeholder="Amount" id="amount" required>
+					</div>
+				</form>
+			</div>
+			<div id="childEvent">
+				<form class="cdetails" >
+					<div id="name">
+						<label for="male">Number of children attending?</label>
+	  					<input type="text" class="form-control" placeholder="Amount" id="amount" required>
+					</div>
+					<div id="name">
+						<label for="male">Number of adults participating in cctivity?</label>
+	  					<input type="text" class="form-control" placeholder="Amount" id="amount" required>
 					</div>
 				</form>
 			</div>
@@ -73,38 +102,23 @@
 				</h3>
 				<form class="cdetails" >
 					<div id="name">
-	  					<input type="text" class="form-control" placeholder="First Name">
+	  					<input type="text" class="form-control" placeholder="First Name" required>
 					</div>
 					<div id="surname">
-		  				<input type="text" class="form-control" placeholder="Surname">
+		  				<input type="text" class="form-control" placeholder="Surname" required>
 					</div>
 					<div id="cell">
-		  				<input type="text" class="form-control" placeholder="Cell Number">
+		  				<input type="text" class="form-control" placeholder="Cell Number" required>
 					</div>
 					<div id="email">
-		  				<input type="text" class="form-control" placeholder="Email Address">
+		  				<input type="text" class="form-control" placeholder="Email Address" required>
 					</div>
 				</form>
 			</div>
-			<div id="privateEvent">
-				<form class="cdetails" >
-					<div id="amountGuests">
-						<label for="male">Number of guests attending<em>(including host)</em></label>
-	  					<input type="text" class="form-control" placeholder="Amount" id="amount">
-					</div>
-				</form>
-			</div>
-			<div id="childEvent">
-				<form class="cdetails" >
-					<div id="name">
-						<label for="male">Number of Children</label>
-	  					<input type="text" class="form-control" placeholder="Amount" id="amount">
-					</div>
-					<div id="name">
-						<label for="male">Number of Children</label>
-	  					<input type="text" class="form-control" placeholder="Amount" id="amount">
-					</div>
-				</form>
+			<div id="submitBTN">
+				<div class="btn-group">
+					<button id="sMit" type="button" class="btn btn-default">Submit</button>
+				</div>
 			</div>
 		</div>
 	</body>
