@@ -4,10 +4,10 @@ $(document).ready(function(){
 	$("#privateEvent").hide();
 	$("#childEvent").hide();
 });
-
+var selText = null;
 $(document).ready(function(){
 	$(".dropdown-menu li a").click(function(){
-	  var selText = $(this).text();
+	  selText = $(this).text();
 	  console.log(selText);
 	  
 	  if(selText == 'Kiddies' || selText == 'Day Visitors' || selText =='School Outing'){
@@ -29,28 +29,59 @@ $(document).ready(function(){
 		if(emailAddress == ""){
 			alert("Enter an email address");
 		} else{
-			//console.log(x);
+
 			var atpos = emailAddress.indexOf("@");
 			var dotpos = emailAddress.lastIndexOf(".");
 			if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=emailAddress.length) {
 				alert("Not a valid e-mail address");
-				return false;
 			} else {
+
+				//Section1
+				var name = $("#nameValue").val();
+				var surename = $("#surNameValue").val();
+				var cell = $("#cellValue").val();
+				var additionalInfo = $("#additionInfValue").val();
 				
+				//Section2
+				var startTime = $("#startValue").val();
+				var endTime = $("#endValue").val();
+				var select = $("#selText").val();
+				
+				//Section3
+				var numberOfGuests_PVT = $("#numberOfGuests_PVT").val();
+				var numberOfChildren = $("#numberOfChildren").val();
+				var numberOfAdults = $("#numberOfAdults").val();
+				
+				//Section4
+				var contactFName = $("#contact_firstName").val();
+				var contactLName = $("#contact_lastName").val();
+				var contactCell = $("#contact_cell").val();
+				var contactEmail = $("#contact_email").val();
+				
+				if(selText == null){
+					selText = "Event type not selected";
+				}
+				
+				if(numberOfGuests_PVT == "" || numberOfGuests_PVT == null){
+					numberOfGuests_PVT = "NA"
+				}
+				
+				if(numberOfChildren == "" || numberOfChildren == null){
+					numberOfChildren = "NA"
+				}
+				
+				if(numberOfAdults == "" || numberOfAdults == null){
+					numberOfAdults = "NA"
+				}
+				
+				var emailBody = "Name: " + name + "\nSurname: " + surename + "\nCell: " + cell + "\nAdditional Information: " + additionalInfo + "\nStart Time: " + startTime + "\nEnd Time: " + endTime + "\nEvent Type: " + selText + "\nNumber of Guests (Private Event): " + numberOfGuests_PVT + "\nNumber of Children: " + numberOfChildren + "\nNumber of Adults: " + numberOfAdults + "\nContact Name: " + contactFName + "\nContact Lastname: " + contactLName + "\nContact Number: " + contactCell + "\nContact Email: " + contactEmail;
+				
+				var link = "mailto:barnesmike@outlook.com"
+					 + "&subject=" + escape("Booking Enquiry")
+					 + "&body=" + emailBody;
+
+				window.location.href = link;
 			}
 		}
-		
-		var name = $("#nameValue").val();
-		var surename = $("#surNameValue").val();
-		var cell = $("#cellValue").val();
-		var additionalInfo = $("#additionInfValue").val();
-		
-		var emailBody = "Name: " + name + "\nSurname: " + surename + "\nCell: " + cell + "\nAdditional Information: " + additionalInfo;
-		
-		var link = "mailto:barnesmike@outlook.com"
-			 + "&subject=" + escape("Booking Enquiry")
-			 + "&body=" + emailBody;
-
-		window.location.href = link;
 	})
 });
