@@ -1,10 +1,15 @@
+//NOTE!!!!!! Set the email address that the form must be sent to below
+var bookingEmail = "Some email address here";
+
+var selText = null;
+
 $('.dDown').dropdown()
 
 $(document).ready(function(){
 	$("#privateEvent").hide();
 	$("#childEvent").hide();
 });
-var selText = null;
+
 $(document).ready(function(){
 	$(".dropdown-menu li a").click(function(){
 	  selText = $(this).text();
@@ -74,13 +79,19 @@ $(document).ready(function(){
 					numberOfAdults = "NA"
 				}
 				
-				var emailBody = "Name: " + name + "\nSurname: " + surename + "\nCell: " + cell + "\nAdditional Information: " + additionalInfo + "\nStart Time: " + startTime + "\nEnd Time: " + endTime + "\nEvent Type: " + selText + "\nNumber of Guests (Private Event): " + numberOfGuests_PVT + "\nNumber of Children: " + numberOfChildren + "\nNumber of Adults: " + numberOfAdults + "\nContact Name: " + contactFName + "\nContact Lastname: " + contactLName + "\nContact Number: " + contactCell + "\nContact Email: " + contactEmail;
+				var date = new Date();
 				
-				var link = "mailto:barnesmike@outlook.com"
-					 + "&subject=" + escape("Booking Enquiry")
-					 + "&body=" + emailBody;
+				var day = date.getDate();
+				var month = date.getMonth() + 1;
+				var year = date.getFullYear();
+				
+				var dateTimeStamp = day + " " + month + " " + year;
+				
+				var emailBody = "Name: " + name + "%0ASurname: " + surename + "%0ACell: " + cell + "%0AAdditional Information: " + additionalInfo + "%0AStart Time: " + startTime + "%0AEnd Time: " + endTime + "%0AEvent Type: " + selText + "%0ANumber of Guests (Private Event): " + numberOfGuests_PVT + "%0ANumber of Children: " + numberOfChildren + "%0ANumber of Adults: " + numberOfAdults + "%0AContact Name: " + contactFName + "%0AContact Lastname: " + contactLName + "%0AContact Number: " + contactCell + "%0AContact Email: " + contactEmail;
+				
+				var mailto_link = 'mailto:' + bookingEmail + '?subject=' + "Booking " + dateTimeStamp + '&body=' + emailBody;
 
-				window.location.href = link;
+				win = window.open(mailto_link, 'emailWindow');
 			}
 		}
 	})
